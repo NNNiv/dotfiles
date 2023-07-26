@@ -1,0 +1,16 @@
+/**
+ *
+ * Author : Nived Mohan
+ * Github : @NNNiv
+ * 
+ * Colors
+ **/
+
+* {
+    background:     #252838;
+    background-alt: #2d3144;
+    foreground:     #f0ecec;
+    selected:       #78dce8;
+    active:         #a9dc76;
+    urgent:         #ff6188;
+}
