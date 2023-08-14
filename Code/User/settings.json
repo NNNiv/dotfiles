@@ -42,5 +42,25 @@
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "workbench.colorCustomizations": {
+    "terminal.background":"#252838",
+    "terminal.foreground":"#f0ecec",
+    "terminal.ansiBlack":"#1D2021",
+    "terminal.ansiBrightBlack":"#665C54",
+    "terminal.ansiBrightBlue":"#78dce8",
+    "terminal.ansiBrightCyan":"#fc9867",
+    "terminal.ansiBrightGreen":"#a9dc76",
+    "terminal.ansiBrightMagenta":"#ab9df2",
+    "terminal.ansiBrightRed":"#ff6188",
+    "terminal.ansiBrightWhite":"#FDF4C1",
+    "terminal.ansiBrightYellow":"#ffd866",
+    "terminal.ansiBlue":"#78dce8",
+    "terminal.ansiCyan":"#fc9867",
+    "terminal.ansiGreen":"#a9dc76",
+    "terminal.ansiMagenta":"#ab9df2",
+    "terminal.ansiRed":"#ff6188",
+    "terminal.ansiWhite":"#A89984",
+    "terminal.ansiYellow":"#ffd866"
+  },
 }
