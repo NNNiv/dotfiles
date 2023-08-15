@@ -47,7 +47,7 @@
     "custom/spotify": {
       "format": "{icon}",
       "format-icons": " ",
-      "on-click": "spotify-launcher"
+      "on-click": "spotify"
     },
     "wlr/workspaces": {
       "wlr/workspaces": {
