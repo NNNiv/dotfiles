@@ -17,6 +17,9 @@ alias btop="btop --utf-force"
 alias Syu="sudo pacman -Syu"
 alias lg="lazygit"
 alias tm="~/termux.sh"
+alias yt="yt-dlp"
+alias b="bat"
+alias z="zellij"
 
 # Starship
 eval "$(starship init zsh)"
@@ -24,3 +27,4 @@ eval "$(starship init zsh)"
 export PATH="/home/nived/.local/bin/:$PATH"
 export CHROME_EXECUTABLE="/usr/bin/brave"
 export PATH="/opt/flutter/bin:$PATH"
+export PATH=$PATH:/home/nived/.spicetify
