@@ -8,7 +8,7 @@
     "margin-right": 6,
 
     "modules-left": ["custom/logo", "custom/search", "custom/btop", "custom/files", "custom/terminal", "custom/spotify"],
-    "modules-center": ["wlr/workspaces"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": [
       "pulseaudio",
       "backlight",
