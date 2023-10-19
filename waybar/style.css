@@ -154,6 +154,7 @@ button:hover {
 #battery {
   color: #78dce8;
   padding-right: 10px;
+  margin-right: 8px;
 }
 
 #battery.charging,
@@ -201,6 +202,7 @@ label:focus {
 
 #network {
   color: #ab9df2;
+  margin-right: 8px;
   /* margin-left: 10px; */
 }
 
