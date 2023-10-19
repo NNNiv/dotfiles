@@ -2,7 +2,7 @@
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: "JetBrainsMono Nerd Font", "FontAwesome 6 Free", Roboto,
     Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   border-radius: 12px;
 }
 /* bg = "#2d3144",
@@ -33,6 +33,7 @@ window#waybar.hidden {
 #window {
   font-size: 12px;
   font-family: JetBrains Mono ExtraBold;
+  padding-right: 10px;
 }
 
 window#waybar.termite {
@@ -76,11 +77,11 @@ button:hover {
   color: #ffd866;
 }
 #custom-terminal {
-  color: #Bac3db;
+  color: #bac3db;
   padding-right: 10px;
 }
 #custom-spotify {
-  color:#a9dc76;
+  color: #a9dc76;
 }
 #workspaces button {
   font-family: JetBrains Mono ExtraBold;
@@ -129,9 +130,9 @@ button:hover {
 #backlight,
 #pulseaudio,
 #wireplumber,
-#custom-powermenu,
-#network,
-#tray {
+#custom-powermenu {
+  /* #network { */
+  /* #tray { */
   /* backgrou10px -color: #252838; */
   /* padding: 0 10px; */
   padding-left: 5px;
@@ -141,7 +142,6 @@ button:hover {
   margin-bottom: 5px;
 }
 
-#window,
 #workspaces {
   margin: 0 4px;
   margin-top: 5px;
@@ -200,8 +200,8 @@ label:focus {
 }
 
 #network {
-  color: #78dce8;
-  margin-left: 10px;
+  color: #ab9df2;
+  /* margin-left: 10px; */
 }
 
 #network.disconnected {
@@ -224,9 +224,9 @@ label:focus {
   background-color: #eb4d4b;
 }
 
-#tray {
-  margin-right: 10px;
-}
+/* #tray { */
+/*   margin-right: 10px; */
+/* } */
 
 #tray > .passive {
   -gtk-icon-effect: dim;
