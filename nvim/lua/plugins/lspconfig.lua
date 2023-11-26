@@ -4,9 +4,10 @@ return {
   config = function()
     -- Setup language servers.
     local lspconfig = require("lspconfig")
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    local default_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
     lspconfig.lua_ls.setup {
-      capabilities = capabilities,
+      capabilities = default_capabilities,
       on_init = function(client)
         local path = client.workspace_folders[1].name
         if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
@@ -32,11 +33,17 @@ return {
         return true
       end
     }
+
     lspconfig.pyright.setup {
-      capabilities = capabilities
+      capabilities = default_capabilities
     }
-    lspconfig.tsserver.setup {}
+
+    lspconfig.tsserver.setup {
+      capabilities = default_capabilities
+    }
+
     lspconfig.rust_analyzer.setup {
+      capabilities = default_capabilities,
       -- Server-specific settings. See `:help lspconfig-setup`
       settings = {
         ['rust-analyzer'] = {},
