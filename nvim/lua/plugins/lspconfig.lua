@@ -18,7 +18,7 @@ return {
                 version = "LuaJIT",
               },
               {
-                diagnostics = { "vim " },
+                diagnostics = { "vim" },
               },
               workspace = {
                 checkThirdParty = false,
@@ -37,11 +37,6 @@ return {
 
     -- Python
     lspconfig.pyright.setup({
-      capabilities = default_capabilities,
-    })
-
-    -- TypeScript / JavaScript
-    lspconfig.tsserver.setup({
       capabilities = default_capabilities,
     })
 
@@ -70,10 +65,29 @@ return {
     local make_client_capabilities = vim.lsp.protocol.make_client_capabilities()
     make_client_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+    -- TypeScript / JavaScript
+    lspconfig.tsserver.setup({
+      capabilities = default_capabilities,
+    })
+
     -- CSS
     require("lspconfig").cssls.setup({
       capabilities = make_client_capabilities,
     })
+
+    -- Emmet
+    lspconfig.emmet_ls.setup({})
+
+    -- Svelte
+    lspconfig.svelte.setup({})
+
+    -- Astro
+    lspconfig.astro.setup({})
+
+    -- Tailwind
+    lspconfig.tailwindcss.setup({})
+
+    -- Keybindings
     vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
