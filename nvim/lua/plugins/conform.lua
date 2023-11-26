@@ -6,6 +6,7 @@ return {
         lua = { "stylua" },
         html = { "prettier" },
         python = { "black" },
+        go = { "gofmt", "goimports" },
         javascript = { { "prettierd", "prettier" } },
       },
     })
