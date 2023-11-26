@@ -6,6 +6,7 @@ return {
     local lspconfig = require("lspconfig")
     local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+    -- Lua
     lspconfig.lua_ls.setup({
       capabilities = default_capabilities,
       on_init = function(client)
@@ -34,14 +35,17 @@ return {
       end,
     })
 
+    -- Python
     lspconfig.pyright.setup({
       capabilities = default_capabilities,
     })
 
+    -- TypeScript / JavaScript
     lspconfig.tsserver.setup({
       capabilities = default_capabilities,
     })
 
+    -- Rust
     lspconfig.rust_analyzer.setup({
       capabilities = default_capabilities,
       -- Server-specific settings. See `:help lspconfig-setup`
@@ -49,6 +53,8 @@ return {
         ["rust-analyzer"] = {},
       },
     })
+
+    -- Go
     lspconfig.gopls.setup({
       settings = {
         gopls = {
@@ -60,9 +66,11 @@ return {
         },
       },
     })
+
     local make_client_capabilities = vim.lsp.protocol.make_client_capabilities()
     make_client_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+    -- CSS
     require("lspconfig").cssls.setup({
       capabilities = make_client_capabilities,
     })
