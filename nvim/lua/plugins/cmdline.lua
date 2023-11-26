@@ -1,4 +1,4 @@
 return {
-  "VonHeikemen/fine-cmdline.nvim",
-  dependencies = "MunifTanjim/nui.nvim",
+	"VonHeikemen/fine-cmdline.nvim",
+	dependencies = "MunifTanjim/nui.nvim",
 }
