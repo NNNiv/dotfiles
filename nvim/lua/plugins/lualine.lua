@@ -21,6 +21,12 @@ return {
               removed = "DiffDelete",
             },
           }
+        },
+        lualine_y = {
+          "hostname"
+        },
+        lualine_z = {
+          "progress"
         }
       },
 
