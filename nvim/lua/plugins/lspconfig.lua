@@ -6,6 +6,12 @@ return {
     local lspconfig = require("lspconfig")
     local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+    -- LSP settings (for overriding per client)
+    local handlers = {
+      ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+      ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+    }
+
     -- Lua
     lspconfig.lua_ls.setup({
       capabilities = default_capabilities,
@@ -35,13 +41,20 @@ return {
       end,
     })
 
+    -- C / C++
+    require("lspconfig").clangd.setup({
+      handlers = handlers,
+    })
+
     -- Python
     lspconfig.pyright.setup({
+      handlers = handlers,
       capabilities = default_capabilities,
     })
 
     -- Rust
     lspconfig.rust_analyzer.setup({
+      handlers = handlers,
       capabilities = default_capabilities,
       -- Server-specific settings. See `:help lspconfig-setup`
       settings = {
@@ -51,6 +64,7 @@ return {
 
     -- Go
     lspconfig.gopls.setup({
+      handlers = handlers,
       settings = {
         gopls = {
           analyses = {
@@ -67,25 +81,35 @@ return {
 
     -- TypeScript / JavaScript
     lspconfig.tsserver.setup({
+      handlers = handlers,
       capabilities = default_capabilities,
     })
 
     -- CSS
-    require("lspconfig").cssls.setup({
+    lspconfig.cssls.setup({
+      handlers = handlers,
       capabilities = make_client_capabilities,
     })
 
     -- Emmet
-    lspconfig.emmet_ls.setup({})
+    lspconfig.emmet_ls.setup({
+      handlers = handlers,
+    })
 
     -- Svelte
-    lspconfig.svelte.setup({})
+    lspconfig.svelte.setup({
+      handlers = handlers,
+    })
 
     -- Astro
-    lspconfig.astro.setup({})
+    lspconfig.astro.setup({
+      handlers = handlers,
+    })
 
     -- Tailwind
-    lspconfig.tailwindcss.setup({})
+    lspconfig.tailwindcss.setup({
+      handlers = handlers,
+    })
 
     -- Keybindings
     vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
