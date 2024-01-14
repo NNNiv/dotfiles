@@ -16,8 +16,8 @@ vim.g.maplocalleader = " "
 
 local opts = {
   ui = {
-    border = "single"
-  }
+    border = "single",
+  },
 }
-require("lazy").setup("plugins", opts)
 
+require("lazy").setup("plugins", opts)

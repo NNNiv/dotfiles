@@ -42,8 +42,12 @@ return {
     })
 
     -- C / C++
-    require("lspconfig").clangd.setup({
+    lspconfig.clangd.setup({
       handlers = handlers,
+      cmd = {
+        "clangd",
+        "--offset-encodings=utf-16",
+      },
     })
 
     -- Python
@@ -109,6 +113,19 @@ return {
     -- Tailwind
     lspconfig.tailwindcss.setup({
       handlers = handlers,
+    })
+
+    -- Eslint
+    lspconfig.eslint.setup({
+      settings = {
+        packageManager = "yarn",
+      },
+      on_attach = function(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          command = "EslintFixAll",
+        })
+      end,
     })
 
     -- Keybindings
