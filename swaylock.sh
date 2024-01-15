@@ -1,12 +1,11 @@
 swaylock \
-	--screenshots \
+  --screenshots \
   --font JetBrainsMonoExtraBold \
 	--clock \
 	--indicator \
-	--indicator-radius 100 \
+	--indicator-radius 150 \
 	--indicator-thickness 7 \
-	--effect-blur 7x5 \
-	--effect-vignette 0.5:0.5 \
+	--effect-blur 6x9 \
   \
 	--ring-color ab9df2 \
   --ring-clear-color 78dce8 \
