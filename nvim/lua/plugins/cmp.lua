@@ -22,14 +22,18 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    -- dependencies = { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
       require("luasnip/loaders/from_vscode").lazy_load()
+      require("luasnip").filetype_extend("javascript", { "javascriptreact" })
+      require("luasnip").filetype_extend("javascript", { "html" })
+      -- require("tailwindcss-colorizer-cmp").setup({
+      --   color_square_width = 2,
+      -- })
+
       vim.opt.completeopt = "menu,menuone,noselect"
-      cmp.config.formatting = {
-        format = require("tailwindcss-colorizer-cmp").formatter,
-      }
 
       cmp.setup({
         snippet = {
@@ -75,6 +79,9 @@ return {
         }),
       })
 
+      -- cmp.config.formatting = {
+      --   format = require("tailwindcss-colorizer-cmp").formatter,
+      -- }
       -- Set configuration for specific filetype.
       cmp.setup.filetype("gitcommit", {
         sources = cmp.config.sources({

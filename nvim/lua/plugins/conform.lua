@@ -9,6 +9,11 @@ return {
         go = { "gofmt", "goimports" },
         javascript = { { "prettierd", "prettier" } },
         typescript = { { "prettierd", "prettier" } },
+        javascriptreact = { { "prettierd", "prettier" } },
+        typescriptreact = { { "prettierd", "prettier" } },
+        svelte = { { "prettierd", "prettier" } },
+        json = { { "prettierd", "prettier" } },
+        rust = { "rustfmt" },
       },
     })
   end,

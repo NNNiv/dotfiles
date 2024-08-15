@@ -4,7 +4,7 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 
--- tabs & indentation 
+-- tabs & indentation
 opt.tabstop = 2
 opt.softtabstop = 2
 opt.shiftwidth = 2
@@ -26,8 +26,14 @@ opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "number"
 
--- backspace 
+-- backspace
 opt.backspace = "indent,eol,start"
 
 -- clipboard
 opt.clipboard:append("unnamedplus")
+
+vim.filetype.add({
+  extension = {
+    templ = "templ",
+  },
+})

@@ -5,15 +5,20 @@ return {
     -- Setup language servers.
     local lspconfig = require("lspconfig")
     local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.offsetEncoding = { "utf-16" }
 
     -- LSP settings (for overriding per client)
     local handlers = {
       ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
       ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
     }
+    -- Border for LspInfo
+    require("lspconfig.ui.windows").default_options.border = "single"
 
     -- Lua
     lspconfig.lua_ls.setup({
+      handlers = handlers,
       capabilities = default_capabilities,
       on_init = function(client)
         local path = client.workspace_folders[1].name
@@ -24,7 +29,9 @@ return {
                 version = "LuaJIT",
               },
               {
-                diagnostics = { "vim" },
+                diagnostics = {
+                  globals = { "vim" },
+                },
               },
               workspace = {
                 checkThirdParty = false,
@@ -43,11 +50,24 @@ return {
 
     -- C / C++
     lspconfig.clangd.setup({
+      capabilities = capabilities,
       handlers = handlers,
-      cmd = {
-        "clangd",
-        "--offset-encodings=utf-16",
-      },
+      -- cmd = {
+      --   "clangd",
+      --   "--offset-encodings=utf-16",
+      -- },
+    })
+
+    -- Dart
+    lspconfig.dartls.setup({
+      handlers = handlers,
+      capabilities = default_capabilities,
+    })
+
+    -- CMake
+    lspconfig.cmake.setup({
+      handlers = handlers,
+      capabilities = default_capabilities,
     })
 
     -- Python
@@ -57,14 +77,15 @@ return {
     })
 
     -- Rust
-    lspconfig.rust_analyzer.setup({
-      handlers = handlers,
-      capabilities = default_capabilities,
-      -- Server-specific settings. See `:help lspconfig-setup`
-      settings = {
-        ["rust-analyzer"] = {},
-      },
-    })
+    -- Disabled cause I'm usign rustaceanvim now
+    -- lspconfig.rust_analyzer.setup({
+    --   handlers = handlers,
+    --   capabilities = default_capabilities,
+    --   -- Server-specific settings. See `:help lspconfig-setup`
+    --   settings = {
+    --     ["rust-analyzer"] = {},
+    --   },
+    -- })
 
     -- Go
     lspconfig.gopls.setup({
@@ -80,6 +101,12 @@ return {
       },
     })
 
+    -- Templ
+    lspconfig.templ.setup({
+      handlers = handlers,
+      capabilities = default_capabilities,
+    })
+
     local make_client_capabilities = vim.lsp.protocol.make_client_capabilities()
     make_client_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -89,15 +116,41 @@ return {
       capabilities = default_capabilities,
     })
 
+    -- HTML
+    lspconfig.html.setup({
+      handlers = handlers,
+      capabilities = capabilities,
+      filetypes = { "html", "templ", "javascriptreact", "typescriptreact" },
+    })
+
+    -- HTMX (I love you Prime)
+    lspconfig.htmx.setup({
+      handlers = handlers,
+      capabilities = capabilities,
+      filetypes = { "html", "templ" },
+    })
+
     -- CSS
     lspconfig.cssls.setup({
       handlers = handlers,
       capabilities = make_client_capabilities,
+      -- filetypes = { "css", "html", "templ" },
+      -- init_options = { userLanguages = { templ = "html" } },
     })
 
     -- Emmet
     lspconfig.emmet_ls.setup({
       handlers = handlers,
+      filetypes = {
+        "templ",
+        "astro",
+        "javascript",
+        "typescript",
+        "react",
+        "html",
+        "javascriptreact",
+        "typescriptreact",
+      },
     })
 
     -- Svelte
@@ -113,10 +166,13 @@ return {
     -- Tailwind
     lspconfig.tailwindcss.setup({
       handlers = handlers,
+      filetypes = { "templ", "astro", "javascript", "typescript", "react", "javascriptreact", "typescriptreact" },
+      init_options = { userLanguages = { templ = "html" } },
     })
 
     -- Eslint
     lspconfig.eslint.setup({
+      handlers = handlers,
       settings = {
         packageManager = "yarn",
       },
