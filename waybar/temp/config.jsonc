@@ -1,0 +1,260 @@
+// [
+  {
+    "layer": "top",
+    "position": "bottom",
+    "height": 30,
+    "spacing": 10,
+    "margin-top": 7,
+    "margin-left": 6,
+    "margin-right": 6,
+
+    "modules-left": ["custom/logo", "custom/search", "custom/btop", "custom/files", "custom/terminal", "custom/spotify", "hyprland/window"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": [
+      "pulseaudio",
+      "backlight",
+      "clock",
+      "battery",
+      "network",
+      "tray",
+      "custom/powermenu"
+    ],
+
+    "custom/logo": {
+      "format": "{icon}",
+      "format-icons": ""
+    },
+
+    "custom/search": {
+      "format": "{icon}",
+      "format-icons": "",
+      "on-click": "$HOME/.config/rofi/launchers/type-1/launcher.sh"
+    },
+
+    "custom/btop": {
+      "format": "{icon} ",
+      "format-icons": "",
+      "on-click": "kitty btop --utf-force"
+    },
+    
+    "custom/files": {
+      "format": "{icon}",
+      "format-icons": "",
+      "on-click": "nautilus"
+    },
+    "custom/terminal": {
+      "format": "{icon}",
+      "format-icons": " ",
+      "on-click": "kitty"
+    },
+    "custom/spotify": {
+      "format": "{icon}",
+      "format-icons": " ",
+      "on-click": "spotify"
+    },
+    "wlr/workspaces": {
+      "wlr/workspaces": {
+        "format": "{icon}",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
+      }
+    },
+    "battery": {
+      "states": {
+        // "good": 95,
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{capacity}% {icon}",
+      "format-charging": "{capacity}% ",
+      "format-plugged": "{capacity}% ",
+      "format-alt": "{time} {icon}",
+      // "format-good": "", // An empty format will hide the module
+      // "format-full": "",
+      "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+      "bat": "BAT2"
+    },
+    "tray": {
+      "spacing": 10
+    },
+    "network": {
+      // "interface": "wlp2*", // (Optional) To force the use of this interface
+      // "format-wifi": "  {essid} ({bandwidthUpBits}    {bandwidthDownBits})",
+      "format-wifi": " ",
+      "format-ethernet": "{ipaddr}/{cidr} ",
+      "tooltip-format": "{essid} : {ifname} via {gwaddr} ",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": "Disconnected ⚠",
+      "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    //
+    // "keyboard-state": {
+    //   "numlock": true,
+    //   "capslock": true,
+    //   "format": "{name} {icon}",
+    //   "format-icons": {
+    //     "locked": "",
+    //     "unlocked": ""
+    //   }
+    // },
+    // "wlr/mode": {
+    //   "format": "<span style=\"italic\">{}</span>"
+    // },
+    // "wlr/scratchpad": {
+    //   "format": "{icon} {count}",
+    //   "show-empty": false,
+    //   "format-icons": ["", ""],
+    //   "tooltip": true,
+    //   "tooltip-format": "{app}: {title}"
+    // },
+    // "mpd": {
+    //   "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    //   "format-disconnected": "Disconnected ",
+    //   "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    //   "unknown-tag": "N/A",
+    //   "interval": 2,
+    //   "consume-icons": {
+    //     "on": " "
+    //   },
+    //   "random-icons": {
+    //     "off": "<span color=\"#f53c3c\"></span> ",
+    //     "on": " "
+    //   },
+    //   "repeat-icons": {
+    //     "on": " "
+    //   },
+    //   "single-icons": {
+    //     "on": "1 "
+    //   },
+    //   "state-icons": {
+    //     "paused": "",
+    //     "playing": ""
+    //   },
+    //   "tooltip-format": "MPD (connected)",
+    //   "tooltip-format-disconnected": "MPD (disconnected)"
+    // },
+    // "idle_inhibitor": {
+    //   "format": "{icon}",
+    //   "format-icons": {
+    //     "activated": "",
+    //     "deactivated": ""
+    //   }
+    // },
+    "clock": {
+      // "timezone": "America/New_York",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": "{:%Y-%m-%d}",
+      "on-click-right": "gnome-calendar"
+    },
+    "backlight": {
+      // "device": "acpi_video1",
+      "on-scroll-up": "brightnessctl set +1%",
+      "on-scroll-down": "brightnessctl set 1%-",
+      "format": "{percent}% {icon}",
+      "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "pulseaudio": {
+      // "scroll-step": 1, // %, can be a float
+      "format": "{volume}% {icon}  {format_source}",
+      "format-bluetooth": "{volume}% {icon} {format_source}",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-muted": " {format_source}",
+      "format-source": "{volume}% ",
+      "format-source-muted": "",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+      },
+      "on-click": "pavucontrol"
+    },
+
+    "custom/powermenu": {
+      "format": "{icon}",
+      "format-icons": "",
+      "on-click": "$HOME/.config/rofi/powermenu/type-3/powermenu.sh"
+    },
+    "hyprland/window": {
+      "max-length": 25,
+      "separate-outputs": true
+    },
+    // "custom/media": {
+    //   "format": "{icon} {}",
+    //   "escape": true,
+    //   "return-type": "json",
+    //   "max-length": 40,
+    //   "on-click": "playerctl play-pause",
+    //   "on-click-right": "playerctl stop",
+    //   "smooth-scrolling-threshold": 10,
+    //   "on-scroll-up": "playerctl next",
+    //   "on-scroll-down": "playerctl previous",
+    //   "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+    // },
+    // "custom/spotify": {
+    //   "format": "{icon} {}",
+    //   "escape": true,
+    //   "return-type": "json",
+    //   "max-length": 40,
+    //   "interval": 30, // Remove this if your script is endless and write in loop
+    //   "on-click": "playerctl -p spotify play-pause",
+    //   "on-click-right": "killall spotify",
+    //   "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+    //   "on-scroll-up": "playerctl -p spotify next",
+    //   "on-scroll-down": "playerctl -p spotify previous",
+    //   "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+    //   "exec-if": "pgrep spotify"
+    // }
+  },
+//   {
+//     "layer": "top",
+//     "position": "bottom",
+//     "height": 37,
+//     "spacing": 10,
+//     "margin-bottom": 7,
+//     "margin-left": 6,
+//     "margin-right": 6,
+//
+//     "modules-left": ["network"],
+//     "modules-center": ["hyprland/window"],
+//     "modules-right": ["disk", "memory", "cpu", "temperature", "tray"],
+//
+//     "network": {
+//       // "interface": "wlp2*", // (Optional) To force the use of this interface
+//       "format-wifi": "  {essid} ({bandwidthUpBits}    {bandwidthDownBits})",
+//       "format-ethernet": "{ipaddr}/{cidr} ",
+//       "tooltip-format": "{ifname} via {gwaddr} ",
+//       "format-linked": "{ifname} (No IP) ",
+//       "format-disconnected": "Disconnected ⚠",
+//       "format-alt": "{ifname}: {ipaddr}/{cidr}"
+//     },
+//     "cpu": {
+//       "format": "{usage}% ",
+//       "tooltip": false
+//     },
+//     "memory": {
+//       "format": "{}% "
+//     },
+//     "temperature": {
+//       // "thermal-zone": 2,
+//       // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+//       "critical-threshold": 80,
+//       // "format-critical": "{temperatureC}°C {icon}",
+//       "format": "{temperatureC}°C {icon}",
+//       "format-icons": ["", "", ""]
+//     },
+//     "disk": {
+//       "interval": 30,
+//       "format": "{percentage_used}% ",
+//       "path": "/"
+//     },
+//     "tray": {
+//       "spacing": 10
+//     }
+//   }
+// ]

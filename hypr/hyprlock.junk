@@ -1,0 +1,12 @@
+
+# USER
+label {
+    monitor =
+    text = Hi there, $USER
+    color = rgba(171, 157, 242, 1)
+    font_size = 25
+    font_family = JetBrains Mono Nerd Font Mono ExtraBold
+    position = 0, -40
+    halign = center
+    valign = center
+}
